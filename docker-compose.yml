@@ -1,0 +1,26 @@
+version: "3.6"
+
+services:
+  backend:
+    image: pavelsoloduha/realworld-app-backend:1.0.0
+    container_name: backend
+    ports:
+      - 8080:8080
+    env_file: .env
+    restart: always
+
+  frontend:
+    image: pavelsoloduha/realworld-app-frontend:1.0.0
+    container_name: frontend
+    ports:
+      - 5000:5000
+    env_file: .env
+    restart: always
+
+  db:
+    image: mysql:8.0.21
+    container_name: db
+    ports:
+      - 3306:3306
+    env_file: .env
+    restart: always
